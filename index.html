@@ -179,7 +179,7 @@
             transform: translateY(-2px);
         }
 
-        /* Seção do Feed do Instagram */
+        /* Nova Seção de Vitrine (Grade Manual de 20 Fotos) */
         .catalog-section {
             max-width: 1300px;
             margin: 0 auto;
@@ -207,15 +207,65 @@
             font-weight: 500;
         }
 
-        /* Estilização Customizada para o Feed Integrado */
-        figure[data-behold-id] {
-            border: 1px solid rgba(209, 161, 59, 0.15) !important;
-            padding: 8px;
-            background: #fff;
-            transition: transform 0.3s ease !important;
+        /* Grid de 4 colunas responsivo */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
         }
-        figure[data-behold-id]:hover {
-            transform: translateY(-5px) !important;
+
+        .gallery-item {
+            position: relative;
+            background: #fff;
+            border: 1px solid rgba(209, 161, 59, 0.12);
+            padding: 10px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+            border-color: var(--gold-primary);
+        }
+
+        .img-container {
+            width: 100%;
+            aspect-ratio: 3 / 4; /* Proporção ideal para fotos de look/moda vertical */
+            overflow: hidden;
+            background-color: #eaeaea;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover .img-container img {
+            transform: scale(1.04);
+        }
+
+        .item-info {
+            padding: 12px 4px 4px 4px;
+            text-align: center;
+        }
+
+        .item-category {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold-primary);
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+
+        .item-title {
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: var(--text-dark);
+            letter-spacing: 0.5px;
         }
 
         /* CTA WhatsApp Seção */
@@ -304,10 +354,17 @@
             text-transform: uppercase;
         }
 
+        /* Responsividade para Tablets e Celulares */
+        @media (max-width: 1024px) {
+            .gallery-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        }
+
         @media (max-width: 768px) {
             .nav-menu { display: none; }
             .hero-title { font-size: 2.3rem; }
             .catalog-section { padding: 60px 16px; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+            .section-header h2 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -341,30 +398,243 @@
         </div>
     </section>
 
-    <!-- Seção de Feed Conectado ao Instagram -->
+    <!-- Seção de Vitrine: 20 Fotos Fixas da Coleção -->
     <section class="catalog-section" id="colecao">
         <div class="section-header">
-            <p>Direct from Instagram</p>
+            <p>Exclusividade & Design</p>
             <h2>Nossa Vitrine Real</h2>
         </div>
 
-        <!-- 
-          COMO FAZER FUNCIONAR EM 1 MINUTO:
-          1. Acesse https://behold.so (É gratuito).
-          2. Conecte a conta do Instagram da loja @use.yvah
-          3. Escolha para exibir um grid de 20 fotos (4 colunas por 5 linhas).
-          4. Copie o código gerado lá e cole substituindo a linha abaixo:
-        -->
-        <div data-behold-id="SEU_CODIGO_AQUI_DEPOIS_DE_CRIAR_A_CONTA"></div>
-        <script src="https://w.behold.so/widget.js" type="module"></script>
+        <div class="gallery-grid">
+            
+            <!-- Foto 1 -->
+            <div class="gallery-item">
+                <div class="img-container">
+                    <img src="images/colecao1.jpg" alt="Coleção Yvah Premium">
+                </div>
+                <div class="item-info">
+                    <p class="item-category">Alfaiataria</p>
+                    <h3 class="item-title">Visual Elegance</h3>
+                </div>
+            </div>
 
+            <!-- Foto 2 -->
+            <div class="gallery-item">
+                <div class="img-container">
+                    <img src="images/colecao2.jpg" alt="Coleção Yvah Premium">
+                </div>
+                <div class="item-info">
+                    <p class="item-category">Alta Costura</p>
+                    <h3 class="item-title">Design Atemporal</h3>
+                </div>
+            </div>
+
+            <!-- Foto 3 -->
+            <div class="gallery-item">
+                <div class="img-container">
+                    <img src="images/colecao3.jpg" alt="Coleção Yvah Premium">
+                </div>
+                <div class="item-info">
+                    <p class="item-category">Casual Premium</p>
+                    <h3 class="item-title">Estilo Minimalista</h3>
+                </div>
+            </div>
+
+            <!-- Foto 4 -->
+            <div class="gallery-item">
+                <div class="img-container">
+                    <img src="images/colecao4.jpg" alt="Coleção Yvah Premium">
+                </div>
+                <div class="item-info">
+                    <p class="item-category">Alfaiataria</p>
+                    <h3 class="item-title">Corte Reto Clássico</h3>
+                </div>
+            </div>
+
+            <!-- Foto 5 -->
+            <div class="gallery-item">
+                <div class="img-container">
+                    <img src="images/colecao5.jpg" alt="Coleção Yvah Premium">
+                </div>
+                <div class="item-info">
+                    <p class="item-category">Vestidos</p>
+                    <h3 class="item-title">Fluidez & Sofisticação</h3>
+                </div>
+            </div>
+
+            <!-- Foto 6 -->
+            <div class="gallery-item">
+                <div class="img-container">
+                    <img src="images/colecao6.jpg" alt="Coleção Yvah Premium">
+                </div>
+                <div class="item-info">
+                    <p class="item-category">Exclusivo</p>
+                    <h3 class="item-title">Detalhes Premium</h3>
+                </div>
+            </div>
+
+            <!-- Foto 7 -->
+            <div class="gallery-item">
+                <div class="img-container">
+                    <img src="images/colecao7.jpg" alt="Coleção Yvah Premium">
+                </div>
+                <div class="item-info">
+                    <p class="item-category">Alfaiataria</p>
+                    <h3 class="item-title">Blazer Estruturado</h3>
+                </div>
+            </div>
+
+            <!-- Foto 8 -->
+            <div class="gallery-item">
+                <div class="img-container">
+                    <img src="images/colecao8.jpg" alt="Coleção Yvah Premium">
+                </div>
+                <div class="item-info">
+                    <p class="item-category">Conjuntos</p>
+                    <h3 class="item-title">Monocromático Chic</h3>
+                </div>
+            </div>
+
+            <!-- Foto 9 -->
+            <div class="gallery-item">
+                <div class="img-container">
+                    <img src="images/colecao9.jpg" alt="Coleção Yvah Premium">
+                </div>
+                <div class="item-info">
+                    <p class="item-category">Casual Premium</p>
+                    <h3 class="item-title">Essencial Yvah</h3>
+                </div>
+            </div>
+
+            <!-- Foto 10 -->
+            <div class="gallery-item">
+                <div class="img-container">
+                    <img src="images/colecao10.jpg" alt="Coleção Yvah Premium">
+                </div>
+                <div class="item-info">
+                    <p class="item-category">Alta Costura</p>
+                    <h3 class="item-title">Silhueta Marcante</h3>
+                </div>
+            </div>
+
+            <!-- Foto 11 -->
+            <div class="gallery-item">
+                <div class="img-container">
+                    <img src="images/colecao11.jpg" alt="Coleção Yvah Premium">
+                </div>
+                <div class="item-info">
+                    <p class="item-category">Vestidos</p>
+                    <h3 class="item-title">Sofisticação Fluida</h3>
+                </div>
+            </div>
+
+            <!-- Foto 12 -->
+            <div class="gallery-item">
+                <div class="img-container">
+                    <img src="images/colecao12.jpg" alt="Coleção Yvah Premium">
+                </div>
+                <div class="item-info">
+                    <p class="item-category">Alfaiataria</p>
+                    <h3 class="item-title">Pantalona Elegance</h3>
+                </div>
+            </div>
+
+            <!-- Foto 13 -->
+            <div class="gallery-item">
+                <div class="img-container">
+                    <img src="images/colecao13.jpg" alt="Coleção Yvah Premium">
+                </div>
+                <div class="item-info">
+                    <p class="item-category">Exclusivo</p>
+                    <h3 class="item-title">Texturas Nobres</h3>
+                </div>
+            </div>
+
+            <!-- Foto 14 -->
+            <div class="gallery-item">
+                <div class="img-container">
+                    <img src="images/colecao14.jpg" alt="Coleção Yvah Premium">
+                </div>
+                <div class="item-info">
+                    <p class="item-category">Conjuntos</p>
+                    <h3 class="item-title">Modernidade Fina</h3>
+                </div>
+            </div>
+
+            <!-- Foto 15 -->
+            <div class="gallery-item">
+                <div class="img-container">
+                    <img src="images/colecao15.jpg" alt="Coleção Yvah Premium">
+                </div>
+                <div class="item-info">
+                    <p class="item-category">Linho</p>
+                    <h3 class="item-title">Leveza Natural</h3>
+                </div>
+            </div>
+
+            <!-- Foto 16 -->
+            <div class="gallery-item">
+                <div class="img-container">
+                    <img src="images/colecao16.jpg" alt="Coleção Yvah Premium">
+                </div>
+                <div class="item-info">
+                    <p class="item-category">Alfaiataria</p>
+                    <h3 class="item-title">Colete Minimalista</h3>
+                </div>
+            </div>
+
+            <!-- Foto 17 -->
+            <div class="gallery-item">
+                <div class="img-container">
+                    <img src="images/colecao17.jpg" alt="Coleção Yvah Premium">
+                </div>
+                <div class="item-info">
+                    <p class="item-category">Casacos</p>
+                    <h3 class="item-title">Sobreposição Clássica</h3>
+                </div>
+            </div>
+
+            <!-- Foto 18 -->
+            <div class="gallery-item">
+                <div class="img-container">
+                    <img src="images/colecao18.jpg" alt="Coleção Yvah Premium">
+                </div>
+                <div class="item-info">
+                    <p class="item-category">Vestidos</p>
+                    <h3 class="item-title">Preto Infalível</h3>
+                </div>
+            </div>
+
+            <!-- Foto 19 -->
+            <div class="gallery-item">
+                <div class="img-container">
+                    <img src="images/colecao19.jpg" alt="Coleção Yvah Premium">
+                </div>
+                <div class="item-info">
+                    <p class="item-category">Premium</p>
+                    <h3 class="item-title">Curadoria Premium</h3>
+                </div>
+            </div>
+
+            <!-- Foto 20 -->
+            <div class="gallery-item">
+                <div class="img-container">
+                    <img src="images/colecao20.jpg" alt="Coleção Yvah Premium">
+                </div>
+                <div class="item-info">
+                    <p class="item-category">Alfaiataria</p>
+                    <h3 class="item-title">Alinhamento Perfeito</h3>
+                </div>
+            </div>
+
+        </div>
     </section>
 
     <!-- Seção de Atendimento Personalizado (WhatsApp Direct) -->
     <section class="cta-whatsapp" id="atendimento">
-        <h2>Gostou de alguma peça do Feed?</h2>
-        <p>Basta clicar na foto para vê-la no Instagram, ou nos chamar agora no WhatsApp informando qual modelo você deseja consultar.</p>
-        <a href="https://wa.me/5531992655960?text=Olá!%20Vi%20um%20look%20no%20Instagram%20do%20site%20e%20gostaria%20de%20consultar%20a%20disponibilidade." target="_blank" class="btn-whatsapp">
+        <h2>Gostou de alguma peça da Coleção?</h2>
+        <p>Entre em contato conosco pelo WhatsApp para consultar tamanhos disponíveis, tecidos e fazer o seu pedido sob consultoria personalizada.</p>
+        <a href="https://wa.me/5531992655960?text=Olá!%20Estou%20no%20site%20da%20Yvah%20e%20gostaria%20de%20consultar%20a%20disponibilidade%20de%20algumas%20peças." target="_blank" class="btn-whatsapp">
             <i class="fab fa-whatsapp"></i> Consultar Peça pelo WhatsApp
         </a>
     </section>
